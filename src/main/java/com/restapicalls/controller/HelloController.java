@@ -35,4 +35,11 @@ public class HelloController {
           // Returning a hello message using the provided first and last names
           return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
      }
+
+     // This method handles PUT requests with a path variable and a query parameter
+     @PutMapping("/put/{firstName}")
+     public String sayHelloWithPut(@PathVariable String firstName, @RequestParam String lastName) {
+          // Returning a hello message using both path variable and query parameter
+          return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+     }
 }
