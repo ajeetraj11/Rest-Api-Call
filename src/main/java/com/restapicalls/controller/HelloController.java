@@ -1,5 +1,6 @@
 package com.restapicalls.controller;
 
+import com.restapicalls.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 // Controller class to handle HTTP requests for hello messages
@@ -26,5 +27,12 @@ public class HelloController {
      public String sayHelloWithPathVariable(@PathVariable String name) {
           // Returning a personalized hello message using the path variable
           return "Hello " + name + " from BridgeLabz";
+     }
+
+     // This method handles POST requests with a JSON body containing first and last names
+     @PostMapping("/post")
+     public String sayHelloWithPost(@RequestBody UserDTO user) {
+          // Returning a hello message using the provided first and last names
+          return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
      }
 }
